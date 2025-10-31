@@ -18,44 +18,36 @@
       text-align: center;
     }
 
-    header {
-      margin-bottom: 30px;
+    /* Personal Details */
+    .details-section {
+      margin-top: 40px;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .profile {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #333;
+    .details-section h2 {
+      font-size: 24px;
       margin-bottom: 15px;
-      cursor: pointer;
-      transition: transform 0.2s;
+      color: #007BFF;
     }
 
-    .profile:hover { transform: scale(1.05); }
+    .details-section p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
 
-    h1, h2 { margin: 10px 0; }
-    .info { font-size: 18px; margin: 5px 0; }
-
-    .section-box {
-      max-width: 500px;
+    /* Gallery Section */
+    .gallery-container {
+      max-width: 1000px;
       margin: 20px auto;
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: left; /* Fixed alignment */
     }
 
-    .section-box p { margin: 8px 0; font-size: 16px; }
-
-    /* Gallery */
     .gallery {
       display: grid;
       gap: 10px;
-      margin-top: 20px;
       justify-content: center;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .gallery img {
@@ -63,160 +55,152 @@
       height: auto;
       object-fit: cover;
       border-radius: 8px;
-      border: 1px solid #ccc;
       cursor: pointer;
       transition: transform 0.2s;
     }
 
     .gallery img:hover { transform: scale(1.05); }
 
-    /* Contact button */
-    .contact-btn {
-      display: block;
-      width: 200px;
-      margin: 20px auto;
-      padding: 12px 20px;
-      text-align: center;
+    .show-more {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
       background-color: #007BFF;
       color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
       text-decoration: none;
-      border-radius: 6px;
-      font-size: 18px;
-      transition: background-color 0.2s;
     }
 
-    .contact-btn:hover { background-color: #0056b3; }
+    .show-more:hover {
+      background-color: #0056b3;
+    }
 
+    /* Responsive Layout */
     @media (max-width: 768px) {
-      /* Mobile gallery: horizontal scroll carousel */
       .gallery {
-        display: flex;
-        overflow-x: auto;
-        grid-template-columns: unset;
+        grid-template-columns: repeat(2, 1fr);
       }
-      .gallery img {
-        flex-shrink: 0;
-        width: 120px;
-        height: 120px;
-      }
-      .section-box { width: 90%; padding: 12px; }
-      .info { font-size: 16px; }
-      .contact-btn { width: 90%; font-size: 16px; }
-    }
-
-    @media (min-width: 769px) {
-      /* Desktop gallery: 2 images per row */
-      .gallery {
-        grid-template-columns: repeat(2, 200px);
-      }
-      .gallery img { height: 200px; }
-    }
-
-    @media (min-width: 1200px) {
-      /* Larger desktop: 3 images per row */
-      .gallery {
-        grid-template-columns: repeat(3, 200px);
+      .show-more {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px;
       }
     }
-
   </style>
 </head>
 <body>
 
   <header>
-    <a href="profile.jpg" class="lightbox"><img class="profile" src="profile.jpg" alt="Raju Thota Profile Photo"></a>
     <h1>Raju Thota</h1>
     <div class="info">Software Test Engineer</div>
-    <div class="info">Company: GSpann Technologies</div>
-    <div class="info">Salary: 17 LPA</div>
   </header>
 
-  <!-- Personal Details -->
-  <section>
+  <!-- Personal Details Section -->
+  <section class="details-section">
     <h2>Personal Details</h2>
-    <div class="section-box">
-      <p><strong>Date of Birth:</strong> 27/02/1998</p>
-      <p><strong>Height:</strong> 5'4"</p>
-      <p><strong>Weight:</strong> 62 kg</p>
-      <p><strong>Blood Group:</strong> O+ve</p>
-      <p><strong>Languages Known:</strong> Telugu, English</p>
-      <p><strong>Caste:</strong> BC-D (Munnuru Kapu)</p>
-      <p><strong>Hobbies:</strong> Reading, Traveling, Cooking</p>
-    </div>
+    <p><strong>Date of Birth:</strong> 27/02/1998</p>
+    <p><strong>Height:</strong> 5'4"</p>
+    <p><strong>Weight:</strong> 62 kg</p>
+    <p><strong>Blood Group:</strong> O+</p>
+    <p><strong>Caste:</strong> BC-D (Munnuru Kapu)</p>
+    <p><strong>Languages:</strong> Telugu, English</p>
+    <p><strong>Education:</strong> 10th - Trinity High School, 12th - Sr Junior College, B.Tech - Anurag University</p>
+    <p><strong>Company:</strong> GSpann Technologies</p>
+    <p><strong>Salary:</strong> 17 LPA</p>
+    <p><strong>Contact:</strong> thotaraju914@gmail.com | 9441258949</p>
   </section>
 
-  <!-- Education Details -->
-  <section>
-    <h2>Education</h2>
-    <div class="section-box">
-      <p><strong>10th:</strong> Trinity High School</p>
-      <p><strong>12th:</strong> SR Junior College</p>
-      <p><strong>B.Tech:</strong> Anurag University</p>
-    </div>
-  </section>
-
-  <!-- About Me -->
-  <section>
-    <h2>About Me</h2>
-    <div class="section-box">
-      <p>
-        I am Raju Thota, a dedicated software test engineer with a passion for ensuring software quality. 
-        I specialize in automated and manual testing, and I thrive in fast-paced, collaborative environments.
-      </p>
-    </div>
-  </section>
-
-  <!-- Photo Gallery -->
+  <!-- Photo Gallery Section -->
   <section>
     <h2>Photo Gallery</h2>
-    <div class="gallery" id="gallery"></div>
-  </section>
+    <div class="gallery-container">
+      <div class="gallery" id="gallery">
+        <!-- Initially visible images (up to 5) will be displayed here dynamically -->
+      </div>
 
-  <!-- Contact Info -->
-  <section>
-    <h2>Contact</h2>
-    <div class="section-box">
-      <p><strong>Email:</strong> <a href="mailto:thotaraju914@gmail.com">thotaraju914@gmail.com</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+919441258949">9441258949</a></p>
+      <div class="gallery more-photos" id="morePhotos">
+        <!-- Additional images will be shown here -->
+      </div>
+
+      <!-- Show More Button -->
+      <a href="javascript:void(0)" class="show-more" id="showMoreButton" onclick="toggleGallery()">Show More Photos</a>
     </div>
   </section>
 
   <!-- JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
 
   <script>
-    const photos = ["profile.jpg", "photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
+    // List of images you have (Replace with actual image file names)
+    const images = [
+      "photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", 
+      "photo6.jpg", "photo7.jpg", "photo8.jpg", "photo9.jpg", "photo10.jpg", 
+      "photo11.jpg", "photo12.jpg", "photo13.jpg", "photo14.jpg", "photo15.jpg",
+      "photo16.jpg", "photo17.jpg", "photo18.jpg", "photo19.jpg", "photo20.jpg"
+    ];
+
+    // Limit the number of visible images at first
+    const visibleImagesLimit = 5;
+
     const gallery = document.getElementById("gallery");
+    const morePhotos = document.getElementById("morePhotos");
+    const showMoreButton = document.getElementById("showMoreButton");
 
-    photos.forEach(src => {
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = "Raju Thota Photo";
-      img.onerror = () => img.style.display = "none";
-      const link = document.createElement("a");
-      link.href = src;
-      link.className = "lightbox";
-      link.appendChild(img);
-      gallery.appendChild(link);
-    });
+    // Function to create gallery images dynamically
+    function renderGalleryImages() {
+      gallery.innerHTML = '';
+      morePhotos.innerHTML = '';
 
+      // Display visible images (first 5 by default)
+      const visibleImages = images.slice(0, visibleImagesLimit);
+      visibleImages.forEach(image => {
+        const aTag = document.createElement('a');
+        aTag.href = image;
+        aTag.classList.add('lightbox');
+        const imgTag = document.createElement('img');
+        imgTag.src = image;
+        imgTag.alt = `Gallery Image ${image}`;
+        aTag.appendChild(imgTag);
+        gallery.appendChild(aTag);
+      });
+
+      // Display the rest of the images if available
+      const remainingImages = images.slice(visibleImagesLimit);
+      remainingImages.forEach(image => {
+        const aTag = document.createElement('a');
+        aTag.href = image;
+        aTag.classList.add('lightbox');
+        const imgTag = document.createElement('img');
+        imgTag.src = image;
+        imgTag.alt = `Gallery Image ${image}`;
+        aTag.appendChild(imgTag);
+        morePhotos.appendChild(aTag);
+      });
+
+      // Hide the Show More button if there are no additional images
+      if (remainingImages.length === 0) {
+        showMoreButton.style.display = 'none';
+      }
+    }
+
+    // Function to toggle "Show More" images
+    function toggleGallery() {
+      const isHidden = morePhotos.style.display === "none" || morePhotos.style.display === "";
+      morePhotos.style.display = isHidden ? "grid" : "none";  // Toggle visibility
+      showMoreButton.textContent = isHidden ? "Show Less Photos" : "Show More Photos";  // Change button text
+    }
+
+    // Initialize gallery on page load
+    window.onload = renderGalleryImages;
+
+    // Initialize SimpleLightbox for gallery images
     const lightbox = new SimpleLightbox('.lightbox', {
       captions: true,
-      captionsData: 'alt',
-      animationSpeed: 250,
-      showCounter: true,
-      enableKeyboard: true
-    });
-
-    lightbox.on('shown.simplelightbox', function() {
-      const img = document.querySelector('.sl-image');
-      if (img) {
-        Panzoom(img, { maxScale: 3, minScale: 1, contain: 'outside', cursor: 'move' });
-      }
+      captionsData: 'alt'
     });
   </script>
-
+  
 </body>
 </html>
-
