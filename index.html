@@ -188,10 +188,15 @@
 <body>
 
   <header>
-    <!-- Removed name under profile photo -->
+    <!-- Profile photo -->
     <a href="profile.JPG" class="lightbox">
       <img class="profile" src="profile.JPG" alt="Raju Thota Profile Photo">
     </a>
+    <!-- Profile details -->
+    <h1>Raju Thota</h1>
+    <div class="info">Software Test Engineer</div>
+    <div class="info">Company: GSpann Technologies</div>
+    <div class="info">Salary: 17 LPA</div>
   </header>
 
   <!-- Personal Details -->
@@ -204,7 +209,6 @@
       <p><strong>Blood Group:</strong> O+ve</p>
       <p><strong>Languages Known:</strong> Telugu, English</p>
       <p><strong>Caste:</strong> BC-D (Munnuru Kapu)</p>
-      <p><strong>Hobbies:</strong> Reading, Traveling, Cooking</p>
     </div>
   </section>
 
@@ -240,7 +244,7 @@
       <a href="photo5.JPG" class="lightbox">Photo 5</a> <!-- Added additional photo -->
       <a href="photo6.JPG" class="lightbox">Photo 6</a> <!-- Added additional photo -->
       <a href="photo7.JPG" class="lightbox">Photo 7</a> <!-- Added additional photo -->
-      <a href="photo8.JPG" class="lightbox">Photo 7</a>
+      <a href="photo8.JPG" class="lightbox">Photo 8</a>
     </div>
   </section>
 
@@ -248,4 +252,28 @@
   <section>
     <h2>Contact</h2>
     <div class="section-box">
-      <p><strong>Email:</strong> <a href="mailto:thotaraju
+      <p><strong>Email:</strong> <a href="mailto:thotaraju914@gmail.com">thotaraju914@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+919441258949">9441258949</a></p>
+    </div>
+  </section>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+
+  <script>
+    const photos = ["profile.JPG", "photo1.JPG", "photo2.JPG", "photo3.JPG", "photo4.JPG"];
+    const gallery = document.getElementById("gallery");
+
+    photos.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Raju's photo";
+      gallery.appendChild(img);
+    });
+
+    const lightbox = new SimpleLightbox('.lightbox', { /* options */ });
+    const panzoomInstance = panzoom('.gallery');
+  </script>
+</body>
+</html>
