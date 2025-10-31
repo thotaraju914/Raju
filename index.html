@@ -1,138 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raju Thota | Software Test Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raju Thota - Software Test Engineer</title>
+
+  <!-- Lightbox CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.css" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #f9fafc;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
       color: #333;
-      margin: 0;
-      padding: 0;
     }
+
     header {
-      background-color: #0077cc;
-      color: white;
       text-align: center;
-      padding: 30px 10px;
+      margin-bottom: 40px;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    header h2 {
-      font-weight: 400;
-      margin-top: 8px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-      padding: 30px 40px;
-    }
-    img.profile {
+
+    .profile {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      display: block;
-      margin: 0 auto 20px;
-      background-color: #ddd;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-    h3 {
-      color: #2c3e50;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-      text-align: left;
+
+    .profile:hover {
+      transform: scale(1.05);
     }
-    p {
-      line-height: 1.6;
+
+    h1 {
+      margin: 10px 0 5px;
     }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
     .info {
-      text-align: left;
-      margin-bottom: 25px;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 5px;
     }
-    .info p {
-      margin: 8px 0;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    /* Gallery */
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
+      gap: 10px;
       justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
     }
+
     .gallery img {
-      width: 200px;
+      width: 150px;
       height: 150px;
       object-fit: cover;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease-in-out;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
+
     .gallery img:hover {
       transform: scale(1.05);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      margin-top: 40px;
     }
   </style>
 </head>
 <body>
+
   <header>
+    <!-- Profile Photo clickable and zoomable -->
+    <a href="profile.jpg">
+      <img class="profile" src="profile.jpg" alt="Raju Thota Profile Photo">
+    </a>
     <h1>Raju Thota</h1>
-    <h2>Software Test Engineer</h2>
+    <div class="info">Software Test Engineer</div>
+    <div class="info">Company: GSpann Technologies</div>
+    <div class="info">Salary: 17 LPA</div>
   </header>
 
-  <div class="container">
-    <img class="profile" src="profile.jpg" alt="Profile Picture">
+  <!-- About Me -->
+  <section>
+    <h2>About Me</h2>
+    <p style="text-align:center; max-width:600px; margin:auto;">
+      I am Raju Thota, a dedicated software test engineer with a passion for ensuring software quality. 
+      I specialize in automated and manual testing, and I thrive in fast-paced, collaborative environments.
+    </p>
+  </section>
 
-    <section class="info">
-      <h3>Professional Details</h3>
-      <p><strong>Company Name:</strong> GSpann Technologies</p>
-      <p><strong>Salary:</strong> 17 LPA</p>
-      <p><strong>Email:</strong> <a href="mailto:thotaraju914@gmail.com">thotaraju914@gmail.com</a></p>
-    </section>
+  <!-- Photo Gallery -->
+  <section>
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+      <a href="photo1.jpg"><img src="photo1.jpg" alt="Photo 1"></a>
+      <a href="photo2.jpg"><img src="photo2.jpg" alt="Photo 2"></a>
+      <a href="photo3.jpg"><img src="photo3.jpg" alt="Photo 3"></a>
+      <!-- Add more photos by copying the line above and updating the filename -->
+    </div>
+  </section>
 
-    <section>
-      <h3>About Me</h3>
-      <p>
-        Hello! I’m Raju Thota, a dedicated and detail-oriented software test engineer.
-        I’m passionate about ensuring quality and efficiency in software products through
-        rigorous testing and automation. I enjoy learning new tools and techniques to make
-        software more reliable and user-friendly.
-      </p>
-    </section>
+  <!-- Lightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
+  <script>
+    // Initialize Lightbox for all clickable images (profile + gallery)
+    var lightbox = new SimpleLightbox('a', { /* optional settings */ });
+  </script>
 
-    <section>
-      <h3>Photo Gallery</h3>
-      <p>You can upload your photos directly to this repository, and they’ll appear here.</p>
-
-      <div class="gallery">
-        <img src="photo1.jpg" alt="Photo 1">
-        <img src="photo2.jpg" alt="Photo 2">
-        <img src="photo3.jpg" alt="Photo 3">
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    <p>© 2025 Raju Thota. All rights reserved.</p>
-  </footer>
 </body>
 </html>
