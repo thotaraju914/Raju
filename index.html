@@ -37,6 +37,20 @@
       margin: 8px 0;
     }
 
+    /* Profile Image */
+    .profile-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .profile-container img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #007BFF;
+    }
+
     /* Gallery Section */
     .gallery-container {
       max-width: 1000px;
@@ -97,6 +111,11 @@
     <div class="info">Software Test Engineer</div>
   </header>
 
+  <!-- Profile Image Section -->
+  <section class="profile-container">
+    <img src="profile.jpg" alt="Profile Picture">
+  </section>
+
   <!-- Personal Details Section -->
   <section class="details-section">
     <h2>Personal Details</h2>
@@ -116,91 +135,4 @@
   <section>
     <h2>Photo Gallery</h2>
     <div class="gallery-container">
-      <div class="gallery" id="gallery">
-        <!-- Initially visible images (up to 5) will be displayed here dynamically -->
-      </div>
-
-      <div class="gallery more-photos" id="morePhotos">
-        <!-- Additional images will be shown here -->
-      </div>
-
-      <!-- Show More Button -->
-      <a href="javascript:void(0)" class="show-more" id="showMoreButton" onclick="toggleGallery()">Show More Photos</a>
-    </div>
-  </section>
-
-  <!-- JS Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
-
-  <script>
-    // List of images you have (Replace with actual image file names)
-    const images = [
-      "photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", 
-      "photo6.jpg", "photo7.jpg", "photo8.jpg", "photo9.jpg", "photo10.jpg", 
-      "photo11.jpg", "photo12.jpg", "photo13.jpg", "photo14.jpg", "photo15.jpg",
-      "photo16.jpg", "photo17.jpg", "photo18.jpg", "photo19.jpg", "photo20.jpg"
-    ];
-
-    // Limit the number of visible images at first
-    const visibleImagesLimit = 5;
-
-    const gallery = document.getElementById("gallery");
-    const morePhotos = document.getElementById("morePhotos");
-    const showMoreButton = document.getElementById("showMoreButton");
-
-    // Function to create gallery images dynamically
-    function renderGalleryImages() {
-      gallery.innerHTML = '';
-      morePhotos.innerHTML = '';
-
-      // Display visible images (first 5 by default)
-      const visibleImages = images.slice(0, visibleImagesLimit);
-      visibleImages.forEach(image => {
-        const aTag = document.createElement('a');
-        aTag.href = image;
-        aTag.classList.add('lightbox');
-        const imgTag = document.createElement('img');
-        imgTag.src = image;
-        imgTag.alt = `Gallery Image ${image}`;
-        aTag.appendChild(imgTag);
-        gallery.appendChild(aTag);
-      });
-
-      // Display the rest of the images if available
-      const remainingImages = images.slice(visibleImagesLimit);
-      remainingImages.forEach(image => {
-        const aTag = document.createElement('a');
-        aTag.href = image;
-        aTag.classList.add('lightbox');
-        const imgTag = document.createElement('img');
-        imgTag.src = image;
-        imgTag.alt = `Gallery Image ${image}`;
-        aTag.appendChild(imgTag);
-        morePhotos.appendChild(aTag);
-      });
-
-      // Hide the Show More button if there are no additional images
-      if (remainingImages.length === 0) {
-        showMoreButton.style.display = 'none';
-      }
-    }
-
-    // Function to toggle "Show More" images
-    function toggleGallery() {
-      const isHidden = morePhotos.style.display === "none" || morePhotos.style.display === "";
-      morePhotos.style.display = isHidden ? "grid" : "none";  // Toggle visibility
-      showMoreButton.textContent = isHidden ? "Show Less Photos" : "Show More Photos";  // Change button text
-    }
-
-    // Initialize gallery on page load
-    window.onload = renderGalleryImages;
-
-    // Initialize SimpleLightbox for gallery images
-    const lightbox = new SimpleLightbox('.lightbox', {
-      captions: true,
-      captionsData: 'alt'
-    });
-  </script>
-  
-</body>
-</html>
+      <div class="gallery" id="gal
