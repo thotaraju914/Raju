@@ -47,7 +47,7 @@
       border: 5px solid #007BFF;
     }
 
-    /* Personal Details */
+    /* Personal Details Section */
     .details-section {
       margin-top: 40px;
       text-align: left;
@@ -66,6 +66,26 @@
     }
 
     .details-section p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    /* About Me Section */
+    .about-me {
+      margin-top: 40px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-me h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #007BFF;
+    }
+
+    .about-me p {
       font-size: 18px;
       margin: 8px 0;
     }
@@ -128,6 +148,8 @@
   <header>
     <h1>Raju Thota</h1>
     <div class="info">Software Test Engineer</div>
+    <div class="info">Company: GSpann Technologies</div>
+    <div class="info">Salary: 17 LPA</div>
   </header>
 
   <!-- Profile Image Section -->
@@ -148,6 +170,12 @@
     <p><strong>Company:</strong> GSpann Technologies</p>
     <p><strong>Salary:</strong> 17 LPA</p>
     <p><strong>Contact:</strong> thotaraju914@gmail.com | 9441258949</p>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="about-me">
+    <h2>About Me</h2>
+    <p>I am Raju Thota, a dedicated software test engineer with a passion for ensuring software quality. I specialize in automated and manual testing, and I thrive in fast-paced, collaborative environments.</p>
   </section>
 
   <!-- Photo Gallery Section -->
@@ -185,58 +213,4 @@
     const showMoreButton = document.getElementById("showMoreButton");
 
     // Function to create gallery images dynamically
-    function renderGalleryImages() {
-      gallery.innerHTML = '';
-      morePhotos.innerHTML = '';
-
-      // Display visible images (first 5 by default)
-      const visibleImages = images.slice(0, visibleImagesLimit);
-      visibleImages.forEach(image => {
-        const aTag = document.createElement('a');
-        aTag.href = image;
-        aTag.classList.add('lightbox');
-        const imgTag = document.createElement('img');
-        imgTag.src = image;
-        imgTag.alt = `Gallery Image ${image}`;
-        aTag.appendChild(imgTag);
-        gallery.appendChild(aTag);
-      });
-
-      // Display the rest of the images if available
-      const remainingImages = images.slice(visibleImagesLimit);
-      remainingImages.forEach(image => {
-        const aTag = document.createElement('a');
-        aTag.href = image;
-        aTag.classList.add('lightbox');
-        const imgTag = document.createElement('img');
-        imgTag.src = image;
-        imgTag.alt = `Gallery Image ${image}`;
-        aTag.appendChild(imgTag);
-        morePhotos.appendChild(aTag);
-      });
-
-      // Hide the Show More button if there are no additional images
-      if (remainingImages.length === 0) {
-        showMoreButton.style.display = 'none';
-      }
-    }
-
-    // Function to toggle "Show More" images
-    function toggleGallery() {
-      const isHidden = morePhotos.style.display === "none" || morePhotos.style.display === "";
-      morePhotos.style.display = isHidden ? "grid" : "none";  // Toggle visibility
-      showMoreButton.textContent = isHidden ? "Show Less Photos" : "Show More Photos";  // Change button text
-    }
-
-    // Initialize gallery on page load
-    window.onload = renderGalleryImages;
-
-    // Initialize SimpleLightbox for gallery images
-    const lightbox = new SimpleLightbox('.lightbox', {
-      captions: true,
-      captionsData: 'alt'
-    });
-  </script>
-  
-</body>
-</html>
+    function rende
