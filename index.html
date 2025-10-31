@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raju Thota - Software Test Engineer</title>
+  <title>Raju Thota - Marriage Proposal</title>
 
-  <!-- Lightbox CSS -->
+  <!-- SimpleLightbox CSS -->
   <link href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.css" rel="stylesheet">
 
   <style>
@@ -19,7 +19,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .profile {
@@ -37,27 +37,29 @@
       transform: scale(1.05);
     }
 
-    h1 {
-      margin: 10px 0 5px;
+    h1 { margin: 10px 0 5px; }
+    h2 { margin-top: 30px; margin-bottom: 15px; text-align: center; }
+    .info { text-align: center; font-size: 18px; margin-top: 5px; }
+
+    .personal-details, .education-details {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    h2 {
-      margin-top: 40px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .info {
-      text-align: center;
-      font-size: 18px;
-      margin-top: 5px;
-    }
+    .personal-details p, .education-details p { margin: 8px 0; font-size: 16px; }
 
     .gallery {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap; 
+      overflow-x: auto;
       gap: 10px;
-      justify-content: center;
+      justify-content: flex-start;
+      margin-top: 20px;
+      padding-bottom: 10px;
     }
 
     .gallery img {
@@ -67,26 +69,67 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       cursor: pointer;
+      flex-shrink: 0;
       transition: transform 0.2s;
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
+    .gallery img:hover { transform: scale(1.05); }
+
+    .contact-btn {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 12px 20px;
+      text-align: center;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 18px;
+      transition: background-color 0.2s;
+    }
+
+    .contact-btn:hover { background-color: #0056b3; }
+
+    @media (max-width: 500px) {
+      .info, .personal-details p, .education-details p { font-size: 16px; }
+      .contact-btn { width: 90%; font-size: 16px; }
+      .gallery img { width: 120px; height: 120px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Profile Photo clickable and zoomable -->
-    <a href="profile.jpg">
-      <img class="profile" src="profile.jpg" alt="Raju Thota Profile Photo">
-    </a>
+    <a href="profile.jpg" class="lightbox"><img id="profile" class="profile" src="profile.jpg" alt="Raju Thota Profile Photo"></a>
     <h1>Raju Thota</h1>
     <div class="info">Software Test Engineer</div>
     <div class="info">Company: GSpann Technologies</div>
     <div class="info">Salary: 17 LPA</div>
   </header>
+
+  <!-- Personal Details -->
+  <section>
+    <h2>Personal Details</h2>
+    <div class="personal-details">
+      <p><strong>Date of Birth:</strong> 27/02/1998</p>
+      <p><strong>Height:</strong> 5'4"</p>
+      <p><strong>Weight:</strong> 62 kg</p>
+      <p><strong>Blood Group:</strong> O+ve</p>
+      <p><strong>Languages Known:</strong> Telugu, English</p>
+      <p><strong>Hobbies:</strong> Reading, Traveling, Cooking</p>
+    </div>
+  </section>
+
+  <!-- Education Details -->
+  <section>
+    <h2>Education</h2>
+    <div class="education-details">
+      <p><strong>10th:</strong> Trinity High School</p>
+      <p><strong>12th (Senior Junior College):</strong> Sr Junior College</p>
+      <p><strong>B.Tech:</strong> Anurag University</p>
+    </div>
+  </section>
 
   <!-- About Me -->
   <section>
@@ -100,19 +143,51 @@
   <!-- Photo Gallery -->
   <section>
     <h2>Photo Gallery</h2>
-    <div class="gallery">
-      <a href="photo1.jpg"><img src="photo1.jpg" alt="Photo 1"></a>
-      <a href="photo2.jpg"><img src="photo2.jpg" alt="Photo 2"></a>
-      <a href="photo3.jpg"><img src="photo3.jpg" alt="Photo 3"></a>
-      <!-- Add more photos by copying the line above and updating the filename -->
-    </div>
+    <div class="gallery" id="gallery"></div>
   </section>
 
-  <!-- Lightbox JS -->
+  <!-- Contact Button -->
+  <a class="contact-btn" href="mailto:thotaraju914@gmail.com">Contact Me</a>
+
+  <!-- JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+
   <script>
-    // Initialize Lightbox for all clickable images (profile + gallery)
-    var lightbox = new SimpleLightbox('a', { /* optional settings */ });
+    // List of photos (update if you add more)
+    const photos = ["profile.jpg", "photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
+
+    // Dynamically add photos if they exist
+    const gallery = document.getElementById("gallery");
+    photos.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Raju Thota Photo";
+      img.className = "zoomable";
+      img.onerror = () => img.style.display = "none"; // hide if image doesn't exist
+      const link = document.createElement("a");
+      link.href = src;
+      link.className = "lightbox";
+      link.appendChild(img);
+      gallery.appendChild(link);
+    });
+
+    // Initialize SimpleLightbox
+    const lightbox = new SimpleLightbox('.lightbox', {
+      captions: true,
+      captionsData: 'alt',
+      animationSpeed: 250,
+      showCounter: true,
+      enableKeyboard: true
+    });
+
+    // Add Panzoom for zoom on lightbox images
+    lightbox.on('shown.simplelightbox', function() {
+      const img = document.querySelector('.sl-image');
+      if (img) {
+        Panzoom(img, { maxScale: 3, minScale: 1, contain: 'outside', cursor: 'move' });
+      }
+    });
   </script>
 
 </body>
