@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raju Thota - Marriage Proposal</title>
+  <title>Raju Thota - Marriage Profile</title>
 
   <!-- SimpleLightbox CSS -->
   <link href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.css" rel="stylesheet">
@@ -33,9 +33,7 @@
       transition: transform 0.2s;
     }
 
-    .profile:hover {
-      transform: scale(1.05);
-    }
+    .profile:hover { transform: scale(1.05); }
 
     h1 { margin: 10px 0 5px; }
     h2 { margin-top: 30px; margin-bottom: 15px; text-align: center; }
@@ -146,15 +144,21 @@
     <div class="gallery" id="gallery"></div>
   </section>
 
-  <!-- Contact Button -->
-  <a class="contact-btn" href="mailto:thotaraju914@gmail.com">Contact Me</a>
+  <!-- Contact Info -->
+  <section>
+    <h2>Contact</h2>
+    <div class="personal-details">
+      <p><strong>Email:</strong> <a href="mailto:thotaraju914@gmail.com">thotaraju914@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:9441258949">9441258949</a></p>
+    </div>
+  </section>
 
   <!-- JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
 
   <script>
-    // List of photos (update if you add more)
+    // List of photos (add your filenames here)
     const photos = ["profile.jpg", "photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
 
     // Dynamically add photos if they exist
@@ -164,31 +168,4 @@
       img.src = src;
       img.alt = "Raju Thota Photo";
       img.className = "zoomable";
-      img.onerror = () => img.style.display = "none"; // hide if image doesn't exist
-      const link = document.createElement("a");
-      link.href = src;
-      link.className = "lightbox";
-      link.appendChild(img);
-      gallery.appendChild(link);
-    });
-
-    // Initialize SimpleLightbox
-    const lightbox = new SimpleLightbox('.lightbox', {
-      captions: true,
-      captionsData: 'alt',
-      animationSpeed: 250,
-      showCounter: true,
-      enableKeyboard: true
-    });
-
-    // Add Panzoom for zoom on lightbox images
-    lightbox.on('shown.simplelightbox', function() {
-      const img = document.querySelector('.sl-image');
-      if (img) {
-        Panzoom(img, { maxScale: 3, minScale: 1, contain: 'outside', cursor: 'move' });
-      }
-    });
-  </script>
-
-</body>
-</html>
+      img.onerror = () => img.style.display = "
