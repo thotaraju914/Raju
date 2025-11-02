@@ -1,11 +1,276 @@
-<h2>Personal Details</h2>
-<div class="section-box">
-  <p><strong>Date of Birth:</strong> 27/02/1997</p>
-  <p><strong>Height:</strong> 5'4"</p>
-  <p><strong>Weight:</strong> 62 kg</p>
-  <p><strong>Blood Group:</strong> O+ve</p>
-  <p><strong>Languages Known:</strong> Telugu, English</p>
-  <p><strong>Caste:</strong> BC-D (Munnuru Kapu)</p>
-  <p><strong>Family:</strong> Parents & brother (Brother: Married)</p>
-  <p><strong>Family Occupation:</strong> Agriculture</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raju Profile</title>
+
+  <!-- SimpleLightbox CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 30px;
+    }
+
+    /* Profile photo styling */
+    .profile {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #333;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .profile:hover { 
+      transform: scale(1.1);
+    }
+
+    h1, h2 { 
+      margin: 10px 0; 
+    }
+
+    .info { 
+      font-size: 18px; 
+      margin: 5px 0; 
+    }
+
+    .section-box {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .section-box p { 
+      margin: 8px 0; 
+      font-size: 16px; 
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover { 
+      transform: scale(1.05); 
+    }
+
+    /* Small photo links */
+    .more-photos {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .more-photos a {
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 16px;
+      transition: color 0.2s;
+    }
+
+    .more-photos a:hover {
+      color: #0056b3;
+    }
+
+    /* Contact button */
+    .contact-btn {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 12px 20px;
+      text-align: center;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 18px;
+      transition: background-color 0.2s;
+    }
+
+    .contact-btn:hover { 
+      background-color: #0056b3; 
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        display: flex;
+        overflow-x: auto;
+        grid-template-columns: unset;
+      }
+
+      .gallery img {
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+      }
+
+      .section-box { 
+        width: 90%; 
+        padding: 12px; 
+      }
+
+      .info { 
+        font-size: 16px; 
+      }
+
+      .contact-btn { 
+        width: 90%; 
+        font-size: 16px; 
+      }
+
+      .profile {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .gallery {
+        grid-template-columns: repeat(2, 200px);
+      }
+
+      .gallery img { 
+        height: 200px; 
+      }
+
+      .profile {
+        width: 250px;
+        height: 250px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .gallery {
+        grid-template-columns: repeat(3, 200px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="profile.JPG" class="lightbox">
+      <img class="profile" src="profile.JPG" alt="Raju Thota Profile Photo">
+    </a>
+    <h1>Raju Thota</h1>
+    <div class="info">Software Engineer</div>
+    <div class="info">Company: GSpann Technologies,Hyderabad</div>
+    <div class="info">Salary: 17 LPA</div>
+  </header>
+
+  <!-- Personal Details -->
+  <section>
+    <h2>Personal Details</h2>
+    <div class="section-box">
+      <p><strong>Date of Birth:</strong> 27/02/1998</p>
+      <p><strong>Height:</strong> 5'4"</p>
+      <p><strong>Weight:</strong> 62 kg</p>
+      <p><strong>Blood Group:</strong> O+ve</p>
+      <p><strong>Languages Known:</strong> Telugu, English</p>
+      <p><strong>Caste:</strong> BC-D (Munnuru Kapu)</p>
+      <p><strong>Family Details:</strong> Parents (Agriculture) & Brother (Married)</p>
+      <p><strong>Native Place:</strong> 1-20, Keshanapalle (V), Mutharam (M), Peddapalle (D) - 505153</p>
+    </div>
+  </section>
+
+  <!-- Education Details -->
+  <section>
+    <h2>Education</h2>
+    <div class="section-box">
+      <p><strong>10th:</strong> Trinity High School, Peddapalle</p>
+      <p><strong>12th:</strong> SR Junior College, Karimnagar</p>
+      <p><strong>B.Tech:</strong> Anurag University, Hyderabad</p>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section>
+    <h2>About Me</h2>
+    <div class="section-box">
+      <p>
+        I am Raju Thota, a dedicated software test engineer with a passion for ensuring software quality. 
+        I specialize in automated and manual testing, and I thrive in fast-paced, collaborative environments.
+      </p>
+    </div>
+  </section>
+
+  <!-- More Photos -->
+  <section>
+    <h2>More Photos</h2>
+    <div class="more-photos">
+      <a href="photo1.JPG" class="lightbox">Photo 1</a>
+      <a href="photo2.JPG" class="lightbox">Photo 2</a>
+      <a href="photo3.JPG" class="lightbox">Photo 3</a>
+      <a href="photo4.JPG" class="lightbox">Photo 4</a>
+      <a href="photo5.JPG" class="lightbox">Photo 5</a>
+      <a href="photo6.JPG" class="lightbox">Photo 6</a>
+      <a href="photo7.JPG" class="lightbox">Photo 7</a>
+      <a href="photo8.JPG" class="lightbox">Photo 8</a>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section>
+    <h2>Contact</h2>
+    <div class="section-box">
+      <p><strong>Email:</strong> <a href="mailto:thotaraju914@gmail.com">thotaraju914@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+919441258949">9441258949</a></p>
+    </div>
+  </section>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+
+  <script>
+    const photos = ["profile.JPG", "photo1.JPG", "photo2.JPG", "photo3.JPG", "photo4.JPG"];
+    const gallery = document.getElementById("gallery");
+
+    if (gallery) {
+      photos.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Raju's photo";
+        gallery.appendChild(img);
+      });
+    }
+
+    const lightbox = new SimpleLightbox('.lightbox', { /* options */ });
+    const panzoomInstance = panzoom('.gallery');
+  </script>
+</body>
+</html>
